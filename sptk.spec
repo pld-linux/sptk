@@ -3,9 +3,10 @@
 %bcond_without	static_libs # don't build static libraries
 #
 Summary:	C++ user interface toolkit for X with database and Excel support
+Summary(pl):	Toolkit C++ dla X ze wsparciem dla bazy danych i Excela
 Name:		sptk
 Version:	3.0.11
-Release:	0.1
+Release:	1
 License:	LGPL v2+ with the exceptions: http://www.sptk.net/index.php?act=license
 Group:		Libraries
 Source0:	http://www.sptk.net/%{name}-%{version}.tbz2
@@ -21,7 +22,11 @@ BuildRequires:	unixODBC-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-C++ user interface toolkit for X with database and Excel support.
+Simple Powerful Toolkit is C++ user interface for X with database and
+Excel support.
+
+%description -l pl
+SPTK jest toolkitem C++ dla X ze wsparciem dla bazy danych i Excela.
 
 %package devel
 Summary:	Header files for SPTK library
@@ -47,6 +52,18 @@ Static SPTK library.
 %description static -l pl
 Statyczna biblioteka SPTK.
 
+%package examples
+Summary:	Examples for Simple Powerful Toolkit
+Summary(pl):	Przyk³ady do SPTK
+Group:	Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description examples
+Examples for Simple Powerful Toolkit.
+
+%description -l pl
+Przyk³ady dla SPTK.
+
 %prep
 %setup -q
 
@@ -62,8 +79,12 @@ Statyczna biblioteka SPTK.
 %install
 rm -rf $RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+cp -Rf examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -89,3 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
 %endif
+
+%files examples
+%defattr(644,root,root,755)
+%{_examplesdir}/%{name}-%{version}
