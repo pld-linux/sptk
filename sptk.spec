@@ -55,7 +55,7 @@ Statyczna biblioteka SPTK.
 %package examples
 Summary:	Examples for Simple Powerful Toolkit
 Summary(pl):	Przyk³ady do SPTK
-Group:	Development/Libraries
+Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description examples
