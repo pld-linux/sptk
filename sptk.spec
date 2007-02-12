@@ -3,7 +3,7 @@
 %bcond_without	static_libs # don't build static libraries
 #
 Summary:	C++ user interface toolkit for X with database and Excel support
-Summary(pl):	Toolkit C++ dla X ze wsparciem dla bazy danych i Excela
+Summary(pl.UTF-8):   Toolkit C++ dla X ze wsparciem dla bazy danych i Excela
 Name:		sptk
 Version:	3.0.13
 Release:	1
@@ -25,44 +25,44 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Simple Powerful Toolkit is C++ user interface for X with database and
 Excel support.
 
-%description -l pl
+%description -l pl.UTF-8
 SPTK jest toolkitem C++ dla X ze wsparciem dla bazy danych i Excela.
 
 %package devel
 Summary:	Header files for SPTK library
-Summary(pl):	Pliki nag³ówkowe biblioteki SPTK
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki SPTK
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for SPTK library.
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki SPTK.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki SPTK.
 
 %package static
 Summary:	Static SPTK library
-Summary(pl):	Statyczna biblioteka SPTK
+Summary(pl.UTF-8):   Statyczna biblioteka SPTK
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static SPTK library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka SPTK.
 
 %package examples
 Summary:	Examples for Simple Powerful Toolkit
-Summary(pl):	Przyk³ady do SPTK
+Summary(pl.UTF-8):   PrzykÅ‚ady do SPTK
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description examples
 Examples for Simple Powerful Toolkit.
 
-%description -l pl
-Przyk³ady dla SPTK.
+%description -l pl.UTF-8
+PrzykÅ‚ady dla SPTK.
 
 %prep
 %setup -q
