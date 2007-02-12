@@ -3,7 +3,7 @@
 %bcond_without	static_libs # don't build static libraries
 #
 Summary:	C++ user interface toolkit for X with database and Excel support
-Summary(pl.UTF-8):   Toolkit C++ dla X ze wsparciem dla bazy danych i Excela
+Summary(pl.UTF-8):	Toolkit C++ dla X ze wsparciem dla bazy danych i Excela
 Name:		sptk
 Version:	3.0.13
 Release:	1
@@ -30,7 +30,7 @@ SPTK jest toolkitem C++ dla X ze wsparciem dla bazy danych i Excela.
 
 %package devel
 Summary:	Header files for SPTK library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki SPTK
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki SPTK
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -42,7 +42,7 @@ Pliki nagłówkowe biblioteki SPTK.
 
 %package static
 Summary:	Static SPTK library
-Summary(pl.UTF-8):   Statyczna biblioteka SPTK
+Summary(pl.UTF-8):	Statyczna biblioteka SPTK
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -54,7 +54,7 @@ Statyczna biblioteka SPTK.
 
 %package examples
 Summary:	Examples for Simple Powerful Toolkit
-Summary(pl.UTF-8):   Przykłady do SPTK
+Summary(pl.UTF-8):	Przykłady do SPTK
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
