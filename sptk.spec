@@ -2,15 +2,17 @@
 # Conditional build:
 %bcond_without	static_libs # don't build static libraries
 #
+%define postrel	r1
+#
 Summary:	C++ user interface toolkit for X with database and Excel support
 Summary(pl.UTF-8):	Toolkit C++ dla X ze wsparciem dla bazy danych i Excela
 Name:		sptk
-Version:	3.0.13
-Release:	1
+Version:	3.5.7
+Release:	%{postrel}.1
 License:	LGPL v2+ with the exceptions: http://www.sptk.net/index.php?act=license
 Group:		Libraries
-Source0:	http://www.sptk.net/%{name}-%{version}.tbz2
-# Source0-md5:	fdc20a559919a769dfa7507eb5730f5e
+Source0:	http://www.sptk.net/%{name}-%{version}-%{postrel}.tbz2
+# Source0-md5:	750b525f5cf481b0be8255bb452fe821
 URL:		http://www.sptk.net/
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf
@@ -65,7 +67,7 @@ Examples for Simple Powerful Toolkit.
 Przykłady dla SPTK.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{postrel}
 
 %build
 %{__libtoolize}
