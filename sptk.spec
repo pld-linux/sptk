@@ -1,24 +1,31 @@
 #
 # Conditional build:
-%bcond_without	static_libs # don't build static libraries
+%bcond_with	examples	# build examples (fails at the moment)
+%bcond_without	excel	# disable excel support
+%bcond_without	odbc	# disable odbc support
+%bcond_without	postgresql	# disable postgresql support
+%bcond_without	sqlite3	# disable sqlite3 support
+%bcond_without	static_libs	# don't build static libraries
 #
 Summary:	C++ user interface toolkit for X with database and Excel support
 Summary(pl.UTF-8):	Toolkit C++ dla X ze wsparciem dla bazy danych i Excela
 Name:		sptk
-Version:	3.5.7.05
+Version:	3.5.7.14
 Release:	0.1
 License:	LGPL v2+ with the exceptions: http://www.sptk.net/index.php?act=license
 Group:		Libraries
 Source0:	http://www.sptk.net/%{name}-%{version}.tbz2
-# Source0-md5:	51ac4d3db97903c8f5d72bee980d546b
+# Source0-md5:	8812f0cd7d722e702e63d4a4e6b7ec59
+Patch0:	%{name}-fltk-include-path.patch
 URL:		http://www.sptk.net/
 BuildRequires:	aspell-devel
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	fltk-devel
 BuildRequires:	libtool
-BuildRequires:	sqlite3-devel
-BuildRequires:	unixODBC-devel
+%{?with_postgresql:BuildRequires:	postgresql-devel}
+%{?with_sqlite3:BuildRequires:	sqlite3-devel}
+%{?with_odbc:BuildRequires:	unixODBC-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -66,6 +73,7 @@ Przykłady dla SPTK.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -73,8 +81,13 @@ Przykłady dla SPTK.
 %{__autoconf}
 %{__automake}
 %configure \
+	--enable-examples=%{?with_examples:yes}%{!?with_examples:no} \
+	--enable-odbc=%{?with_odbc:yes}%{!?with_odbc:no} \
+	--enable-postgresql=%{?with_postgresql:yes}%{!?with_postgresql:no} \
+	--enable-sqlite3=%{?with_sqlite3:yes}%{!?with_sqlite3:no} \
 	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no} \
 	--enable-debug=%{?debug:yes}%{!?debug:no}
+
 %{__make}
 
 %install
