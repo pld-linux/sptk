@@ -10,13 +10,12 @@
 Summary:	C++ user interface toolkit for X with database and Excel support
 Summary(pl.UTF-8):	Toolkit C++ dla X ze wsparciem dla bazy danych i Excela
 Name:		sptk
-Version:	3.5.7.14
+Version:	3.5.8.8
 Release:	0.1
-License:	LGPL v2+ with the exceptions: http://www.sptk.net/index.php?act=license
+License:	BSD
 Group:		Libraries
 Source0:	http://www.sptk.net/%{name}-%{version}.tbz2
-# Source0-md5:	8812f0cd7d722e702e63d4a4e6b7ec59
-Patch0:	%{name}-fltk-include-path.patch
+# Source0-md5:	7ea3fac6735f508592b3bb46e855d597
 URL:		http://www.sptk.net/
 BuildRequires:	aspell-devel
 BuildRequires:	autoconf >= 2.59
@@ -73,7 +72,6 @@ Przykłady dla SPTK.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
