@@ -67,7 +67,7 @@ Requires:	%{name}-devel = %{version}-%{release}
 %description examples
 Examples for Simple Powerful Toolkit.
 
-%description -l pl.UTF-8
+%description examples -l pl.UTF-8
 Przykłady dla SPTK.
 
 %prep
