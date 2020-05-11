@@ -1,11 +1,11 @@
 #
 # Conditional build:
 %bcond_with	examples	# build examples (fails at the moment)
-%bcond_without	excel	# disable excel support
-%bcond_without	odbc	# disable odbc support
-%bcond_without	postgresql	# disable postgresql support
-%bcond_without	sqlite3	# disable sqlite3 support
-%bcond_without	static_libs	# don't build static libraries
+%bcond_without	excel		# excel support
+%bcond_without	odbc		# ODBC support
+%bcond_without	pgsql		# PostgreSQL support
+%bcond_without	sqlite3		# SQLite3 support
+%bcond_without	static_libs	# static libraries
 #
 Summary:	C++ user interface toolkit for X with database and Excel support
 Summary(pl.UTF-8):	Toolkit C++ dla X ze wsparciem dla bazy danych i Excela
@@ -22,7 +22,7 @@ BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	fltk-devel
 BuildRequires:	libtool
-%{?with_postgresql:BuildRequires:	postgresql-devel}
+%{?with_pgsql:BuildRequires:	postgresql-devel}
 %{?with_sqlite3:BuildRequires:	sqlite3-devel}
 %{?with_odbc:BuildRequires:	unixODBC-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -81,7 +81,7 @@ Przykłady dla SPTK.
 %configure \
 	--enable-examples=%{?with_examples:yes}%{!?with_examples:no} \
 	--enable-odbc=%{?with_odbc:yes}%{!?with_odbc:no} \
-	--enable-postgresql=%{?with_postgresql:yes}%{!?with_postgresql:no} \
+	--enable-postgresql=%{?with_pgsql:yes}%{!?with_pgsql:no} \
 	--enable-sqlite3=%{?with_sqlite3:yes}%{!?with_sqlite3:no} \
 	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no} \
 	--enable-debug=%{?debug:yes}%{!?debug:no}
